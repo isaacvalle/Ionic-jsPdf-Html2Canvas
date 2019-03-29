@@ -6,7 +6,7 @@ import * as html2canvas from 'html2canvas';
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 
-declare var cordova:any;
+// declare var cordova:any;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -25,7 +25,7 @@ export class HomePage {
 
 
 
-  
+
   generatePdf(){
     const div = document.getElementById("Html2Pdf");
     const options = {background:"white",height :div.clientHeight , width : div.clientWidth  };
@@ -50,7 +50,7 @@ export class HomePage {
 
       //Name of pdf
       const fileName = this.fileName+".pdf";
-      
+
       //Writing File to Device
       this.file.writeFile(directory,fileName,buffer)
       .then((success) => {
@@ -60,13 +60,13 @@ export class HomePage {
         .then((success) =>{
           console.log("File Opened Succesfully" + JSON.stringify(success));
         })
-        .catch((error)=> console.log("Cannot Open File " +JSON.stringify(error))); 
-        
-        
+        .catch((error)=> console.log("Cannot Open File " +JSON.stringify(error)));
+
+
       })
       .catch((error)=> console.log("Cannot Create File " +JSON.stringify(error)));
-  
-  
+
+
     });
   }
 
@@ -78,5 +78,5 @@ export class HomePage {
     .then((success)=> console.log("PDF file exsit : " + JSON.stringify(success)))
     .catch((error)=> console.log("Cannot find Pdf file : " +JSON.stringify(error)));
   }
- 
+
 }
